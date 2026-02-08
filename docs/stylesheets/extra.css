@@ -1,0 +1,167 @@
+/* QUASAR Documentation - Custom Styling (LangChain-inspired) */
+
+:root {
+  /* Primary colors */
+  --md-primary-fg-color: #00897b;
+  --md-primary-fg-color--light: #4db6ac;
+  --md-primary-fg-color--dark: #00695c;
+  --md-accent-fg-color: #26c6da;
+}
+
+/* Dark mode colors */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0d1117;
+  --md-default-fg-color: #c9d1d9;
+  --md-default-fg-color--light: #8b949e;
+  --md-default-bg-color--light: #161b22;
+  --md-primary-fg-color: #4db6ac;
+  --md-accent-fg-color: #26c6da;
+  --md-typeset-a-color: #58a6ff;
+  --md-code-bg-color: #161b22;
+  --md-code-fg-color: #c9d1d9;
+}
+
+/* Left sidebar styling */
+.md-sidebar--primary {
+  border-right: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-nav__title {
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+
+.md-nav__link {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.md-nav__link--active {
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+}
+
+/* Right TOC sidebar - add separator line */
+.md-sidebar--secondary {
+  border-left: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-sidebar--secondary .md-nav__title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--md-default-fg-color--light);
+  padding: 0.8rem 0.8rem 0.4rem;
+}
+
+/* "On this page" TOC items */
+.md-sidebar--secondary .md-nav__link {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-left: 2px solid transparent;
+  margin-left: 0.5rem;
+}
+
+.md-sidebar--secondary .md-nav__link--active,
+.md-sidebar--secondary .md-nav__link:hover {
+  border-left-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+
+/* Content area */
+.md-content {
+  max-width: 800px;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  margin-bottom: 1rem;
+}
+
+.md-typeset h2 {
+  font-weight: 600;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+/* Code blocks */
+.md-typeset pre {
+  border-radius: 8px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset code {
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--md-default-bg-color--light);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  border: none;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  padding: 0.8rem 1rem;
+}
+
+/* Admonitions (notes, tips, warnings) */
+.md-typeset .admonition {
+  border-radius: 8px;
+  border-left-width: 4px;
+}
+
+/* Header */
+.md-header {
+  background-color: var(--md-default-bg-color);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Search */
+.md-search__input {
+  border-radius: 8px;
+  background-color: var(--md-default-bg-color--light);
+}
+
+/* Footer */
+.md-footer {
+  background-color: var(--md-default-bg-color);
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Navigation sections in left sidebar */
+.md-nav--primary .md-nav__item--nested > .md-nav__link {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Active link indicator line */
+.md-nav__link--active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--md-accent-fg-color);
+  border-radius: 0 2px 2px 0;
+}
+
+.md-nav__item {
+  position: relative;
+}
