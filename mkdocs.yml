@@ -103,6 +103,7 @@ plugins:
   - search
 
 extra:
+  generator: false  # Hide "Made with Material for MkDocs" footer
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Sunilk240/quasar-cli
