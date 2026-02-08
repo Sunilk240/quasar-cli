@@ -80,7 +80,7 @@ quasar --version
 Output:
 
 ```
-QUASAR v2.0.0
+QUASAR v2.0.0 (or higher)
 ```
 
 ---

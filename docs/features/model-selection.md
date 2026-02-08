@@ -64,9 +64,13 @@ quasar --model ollama/qwen2.5-coder:7b "fix the bug"
 
 | Model | Description |
 |-------|-------------|
-| `qwen2.5-coder:7b` | Coding focused |
-| `deepseek-coder:6.7b` | Code generation |
-| `glm-4.7:cloud` | QUASAR default |
+| `glm-4.7:cloud` | Default, balanced |
+| `deepseek-v3.1:671b-cloud` | Code intelligence |
+| `gpt-oss:120b-cloud` | Large, powerful |
+| `qwen3-coder:480b-cloud` | Coding focused |
+
+!!! tip "Custom Models"
+    Use `--model ollama/your-model` for any local model.
 
 ---
 

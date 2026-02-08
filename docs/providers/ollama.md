@@ -1,6 +1,6 @@
 # Ollama
 
-Ollama provides **local AI models** - no API key required, runs on your machine.
+QUASAR uses **cloud models** via Ollama for fast execution and best performance.
 
 ---
 
@@ -34,15 +34,74 @@ Default URL: `http://localhost:11434`
 
 ---
 
-## Pull a Model
+## Pull Cloud Models
+
+QUASAR uses cloud models by default. Pull them for Auto mode:
 
 ```bash
-# Recommended for coding
-ollama pull qwen2.5-coder:7b
+# Required for Auto mode
+ollama pull glm-4.7:cloud
+ollama pull deepseek-v3.1:671b-cloud
+ollama pull qwen3-coder:480b-cloud
+ollama pull gpt-oss:120b-cloud
+```
 
-# Other options
-ollama pull deepseek-coder:6.7b
+---
+
+## Available Models
+
+### Cloud Models (Default)
+
+| Model | Description | Tool Calling |
+|-------|-------------|--------------|
+| `glm-4.7:cloud` | Primary, balanced | ✅ Excellent |
+| `deepseek-v3.1:671b-cloud` | Code intelligence | ✅ Excellent |
+| `gpt-oss:120b-cloud` | Large, powerful | ✅ Excellent |
+| `qwen3-coder:480b-cloud` | Coding focused | ✅ Good |
+| `deepseek-v3.2:cloud` | Latest DeepSeek | ✅ Good |
+
+!!! success "Recommended"
+    `glm-4.7:cloud` is the default model in Auto mode.
+
+---
+
+## Usage
+
+```bash
+# Auto mode (uses cloud models)
+quasar "your request"
+
+# Specify a cloud model
+quasar --model ollama/glm-4.7:cloud "your request"
+quasar --model ollama/deepseek-v3.1:671b-cloud "analyze this code"
+```
+
+---
+
+## Custom/Local Models
+
+QUASAR also supports any local model for flexibility:
+
+```bash
+# Use custom local models
+quasar --model ollama/qwen2.5-coder:7b "your request"
+quasar --model ollama/codellama:7b "explain main.py"
+quasar --model ollama/deepseek-coder:6.7b "refactor utils.py"
+```
+
+### When to Use Local Models
+
+- Cloud model rate limits exceeded
+- Offline work required
+- Privacy-sensitive tasks
+- Experimenting with different models
+
+### Pull Local Models
+
+```bash
+ollama pull qwen2.5-coder:7b
 ollama pull codellama:7b
+ollama pull deepseek-coder:6.7b
 ```
 
 ---
@@ -56,37 +115,6 @@ To specify a custom URL:
 ```env
 OLLAMA_BASE_URL=http://localhost:11434
 ```
-
----
-
-## Available Models
-
-| Model | Size | Best For |
-|-------|------|----------|
-| `qwen2.5-coder:7b` | 7B | General coding |
-| `deepseek-coder:6.7b` | 6.7B | Code generation |
-| `codellama:7b` | 7B | Code understanding |
-| `glm-4.7:cloud` | Cloud | QUASAR default |
-
----
-
-## Usage
-
-```bash
-# Use Ollama explicitly
-quasar --model ollama/qwen2.5-coder:7b "your request"
-```
-
----
-
-## Advantages
-
-| Feature | Benefit |
-|---------|---------|
-| **Privacy** | Code never leaves your machine |
-| **Offline** | Works without internet |
-| **Free** | No API costs |
-| **Fast** | Low latency (local) |
 
 ---
 
@@ -113,13 +141,5 @@ Error: Model 'xyz' not found
 **Solution:** Pull the model first:
 
 ```bash
-ollama pull qwen2.5-coder:7b
+ollama pull glm-4.7:cloud
 ```
-
-### Slow Performance
-
-Local models need GPU for best performance. If running on CPU:
-
-- Use smaller models (7B)
-- Expect slower responses
-- Consider cloud providers for heavy usage

@@ -26,6 +26,8 @@ theme:
     code: JetBrains Mono
   features:
     # Left sidebar navigation (no top tabs)
+    - navigation.instant           # SPA-like navigation, keeps scroll position
+    - navigation.instant.progress  # Shows loading progress
     - navigation.sections
     - navigation.expand
     - navigation.indexes

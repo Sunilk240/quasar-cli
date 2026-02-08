@@ -32,14 +32,39 @@ TAVILY_API_KEY=tvly_your_key_here
 
 ### Option 2: Environment Variables
 
-```bash
-# Groq
-export GROQ_API_KEY_1="gsk_your_key_here"
-export GROQ_API_KEY_2="gsk_your_second_key_here"
+=== "Linux/macOS"
 
-# Cerebras
-export CEREBRAS_API_KEY_1="csk_your_key_here"
-```
+    ```bash
+    # Groq
+    export GROQ_API_KEY_1="gsk_your_key_here"
+    export GROQ_API_KEY_2="gsk_your_second_key_here"
+
+    # Cerebras
+    export CEREBRAS_API_KEY_1="csk_your_key_here"
+    ```
+
+=== "Windows (CMD)"
+
+    ```bash
+    # Temporary (current session only)
+    set GROQ_API_KEY_1=gsk_your_key_here
+    set CEREBRAS_API_KEY_1=csk_your_key_here
+
+    # Permanent (restart terminal after)
+    setx GROQ_API_KEY_1 "gsk_your_key_here"
+    setx CEREBRAS_API_KEY_1 "csk_your_key_here"
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    # Temporary (current session only)
+    $env:GROQ_API_KEY_1 = "gsk_your_key_here"
+    $env:CEREBRAS_API_KEY_1 = "csk_your_key_here"
+
+    # Permanent
+    [System.Environment]::SetEnvironmentVariable("GROQ_API_KEY_1", "gsk_your_key_here", "User")
+    ```
 
 ---
 
@@ -90,15 +115,38 @@ quasar --model groq/openai/gpt-oss-120b "your request"
 
 ## Ollama Configuration
 
-For local Ollama:
+QUASAR uses **cloud models** via Ollama for fast execution.
+
+### Setup
 
 1. Install Ollama from [ollama.ai](https://ollama.ai)
 2. Start the server: `ollama serve`
-3. Pull a model: `ollama pull qwen2.5-coder:7b`
-4. Use with QUASAR:
+3. Pull the required cloud models:
 
 ```bash
+# Required for Auto mode
+ollama pull glm-4.7:cloud
+ollama pull deepseek-v3.1:671b-cloud
+ollama pull qwen3-coder:480b-cloud
+```
+
+### Default Models
+
+| Model | Description |
+|-------|-------------|
+| `glm-4.7:cloud` | Default, balanced |
+| `deepseek-v3.1:671b-cloud` | Code intelligence |
+| `gpt-oss:120b-cloud` | Large, powerful |
+| `qwen3-coder:480b-cloud` | Coding focused |
+
+### Custom/Local Models
+
+You can also use any local model with the `--model` flag:
+
+```bash
+# Use a custom local model
 quasar --model ollama/qwen2.5-coder:7b "your request"
+quasar --model ollama/codellama:7b "your request"
 ```
 
 Default Ollama URL: `http://localhost:11434`

@@ -94,13 +94,3 @@ quasar --workspace /path/to/project "your request"
 
 !!! tip "Review Before Running"
     Always review QUASAR's suggested commands before executing them.
-
----
-
-## Reporting Issues
-
-If you find a security issue:
-
-1. Do NOT open a public issue
-2. Email: [security contact]
-3. Include reproduction steps

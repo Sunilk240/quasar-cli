@@ -38,7 +38,7 @@ quasar --version
 You should see:
 
 ```
-QUASAR v2.0.0
+QUASAR v2.0.0 (or higher)
 ```
 
 ---
@@ -59,8 +59,8 @@ For development or contributing:
 
 ```bash
 # Clone the repository
-git clone https://github.com/Sunilk240/quasar-cli.git
-cd quasar-cli
+git clone https://github.com/Sunilk240/QUASAR.git
+cd QUASAR/quasar-cli
 
 # Install in development mode
 pip install -e ".[dev]"
